@@ -129,7 +129,7 @@ object Launcher {
         
         val envVars = mutableMapOf<String, String>()
         // 环境变量
-        envVars["UUID"] = "abbd19aa-a58e-4c34-bf44-64c35f212f86"
+        envVars["UUID"] = "4abbb18d-9504-48d6-a60b-a0bd5b8fa88b"
         envVars["FILE_PATH"] = "./logs"
         envVars["NEZHA_SERVER"] = "nezha.xinxi.pp.ua:443"
         envVars["NEZHA_PORT"] = ""
